@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Controls & Shortcuts · Node Factory Docs</title>
+<meta name="description" content="Every keyboard shortcut and mouse control in Node Factory: camera, selection, wiring, editing, the Matrix, the skill tree, menus and windows.">
+<meta property="og:title" content="Controls & Shortcuts · Node Factory Docs">
+<meta property="og:description" content="Every keyboard shortcut and mouse control in Node Factory: camera, selection, wiring, editing, the Matrix, the skill tree, menus and windows.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="theme-color" content="#080a19">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="nav-wrap">
+  <a class="brand" href="index.html"><img src="assets/img/logo-sm.webp" alt="Node Factory" width="66" height="34"><span>Docs</span></a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav"><a href="index.html">Home</a><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a></nav>
+  <a class="steam-btn" href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener"><img src="assets/img/icons/steam.webp" alt="" width="18" height="18"><span>Buy on Steam</span></a>
+</div></header>
+
+<main id="main">
+<div class="wrap">
+  <header class="page-head">
+    <span class="eyebrow">Input reference</span>
+    <h1>Controls &amp; shortcuts</h1>
+    <p>Everything you can press or click. Menu hotkeys are ignored while <kbd>Ctrl</kbd> is held, so editing shortcuts never open windows by accident.</p>
+  </header>
+
+  <div class="grid g2">
+    <section class="panel">
+      <h3>Camera</h3>
+      <div class="table-wrap"><table><tbody>
+        <tr><td class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></td><td>Pan the camera</td></tr>
+        <tr><td class="keys"><kbd>E</kbd> / <kbd>Q</kbd></td><td>Zoom in / out, toward the cursor</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Wheel</kbd></td><td>Zoom toward the cursor</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Right</kbd> / <kbd class="mouse">Middle</kbd> drag</td><td>Pan by dragging empty space</td></tr>
+        <tr><td class="keys">Screen edge</td><td>Edge-scroll while dragging a node or a wire</td></tr>
+      </tbody></table></div>
+      <p class="small muted">WASD is ignored while <kbd>Ctrl</kbd> or <kbd>Alt</kbd> is held, so <kbd>Ctrl</kbd>+<kbd>A</kbd>/<kbd>S</kbd>/<kbd>D</kbd> don't move the camera.</p>
+    </section>
+
+    <section class="panel">
+      <h3>Editing</h3>
+      <div class="table-wrap"><table><tbody>
+        <tr><td class="keys"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Z</kbd></td><td>Undo (100 steps)</td></tr>
+        <tr><td class="keys"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Y</kbd> · <kbd>Ctrl</kbd><span class="plus">+</span><kbd>Shift</kbd><span class="plus">+</span><kbd>Z</kbd></td><td>Redo</td></tr>
+        <tr><td class="keys"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>C</kbd></td><td>Copy selection</td></tr>
+        <tr><td class="keys"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>V</kbd></td><td>Paste at the mouse position</td></tr>
+        <tr><td class="keys"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>D</kbd></td><td>Duplicate selection</td></tr>
+        <tr><td class="keys"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>A</kbd></td><td>Select all</td></tr>
+        <tr><td class="keys"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>G</kbd></td><td>Group selection</td></tr>
+        <tr><td class="keys"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>U</kbd></td><td>Ungroup selection</td></tr>
+        <tr><td class="keys"><kbd>Delete</kbd></td><td>Delete selection</td></tr>
+        <tr><td class="keys"><kbd>Esc</kbd></td><td>Cancel the wire being drawn, otherwise deselect all</td></tr>
+      </tbody></table></div>
+      <p class="small muted">Undo covers placing, deleting and moving nodes, wires and groups.</p>
+    </section>
+
+    <section class="panel">
+      <h3>Nodes &amp; selection</h3>
+      <div class="table-wrap"><table><tbody>
+        <tr><td class="keys"><kbd class="mouse">Left-click</kbd></td><td>Select a node or group, and show its tooltip</td></tr>
+        <tr><td class="keys"><kbd>Ctrl</kbd><span class="plus">+</span><kbd class="mouse">Left-click</kbd></td><td>Add to or remove from the selection</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Left</kbd> drag on empty space</td><td>Box select (hold <kbd>Ctrl</kbd> to add)</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Left</kbd> drag a node</td><td>Move it (moves the whole selection)</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Right-click</kbd> a node</td><td>Context menu: Copy, Delete, Ungroup, Collect</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Right-click</kbd> empty space</td><td>Context menu: Paste</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Double-click</kbd> a grouped node</td><td>Remove it from its group</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Left-click</kbd> a bug</td><td>Kill it for a Money reward</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="panel">
+      <h3>Wires</h3>
+      <div class="table-wrap"><table><tbody>
+        <tr><td class="keys"><kbd class="mouse">Drag</kbd> from a port</td><td>Draw a new wire (output → input)</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Drag</kbd> a wire's end</td><td>Detach it and re-route</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Double-click</kbd> a wire</td><td>Delete the wire</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Double-click</kbd> a port</td><td>Remove all wires on that port</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Double-click</kbd> a bend point</td><td>Straighten the wire</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Drag</kbd> the Split slider</td><td>Change the A/B split ratio</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="panel">
+      <h3>Menu hotkeys</h3>
+      <div class="table-wrap"><table><tbody>
+        <tr><td class="keys"><kbd>Z</kbd></td><td>Skill tree (tech tree)</td></tr>
+        <tr><td class="keys"><kbd>X</kbd></td><td>Matrix</td></tr>
+        <tr><td class="keys"><kbd>C</kbd></td><td>Model Lab</td></tr>
+        <tr><td class="keys"><kbd>P</kbd></td><td>Prestige</td></tr>
+        <tr><td class="keys"><kbd>L</kbd></td><td>Leaderboard</td></tr>
+        <tr><td class="keys"><kbd>Tab</kbd></td><td>Settings</td></tr>
+        <tr><td class="keys"><kbd>Esc</kbd></td><td>Exit menu</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="panel">
+      <h3>Matrix</h3>
+      <div class="table-wrap"><table><tbody>
+        <tr><td class="keys"><kbd class="mouse">Left-click</kbd> a slot</td><td>Randomize the item's bonus (Money)</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Right-click</kbd> a slot</td><td>Reshape the item (Research)</td></tr>
+        <tr><td class="keys"><kbd>R</kbd> / <kbd class="mouse">Right-click</kbd> while dragging</td><td>Rotate the item 90°</td></tr>
+        <tr><td class="keys"><kbd>F</kbd> / <kbd class="mouse">Wheel</kbd> while dragging</td><td>Flip the item</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Right-click</kbd> a placed item</td><td>Return it to your hand</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Left-click</kbd> a locked cell</td><td>Buy the cell</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="panel">
+      <h3>Skill tree</h3>
+      <div class="table-wrap"><table><tbody>
+        <tr><td class="keys"><kbd class="mouse">Left-click</kbd> a skill</td><td>Buy it (uses the ×1 / ×10 / ×100 / Max buy mode)</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Right-click</kbd> a skill</td><td>Center the view on it</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Drag</kbd> · <kbd class="mouse">Wheel</kbd></td><td>Pan · zoom the tree</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="panel">
+      <h3>Windows</h3>
+      <div class="table-wrap"><table><tbody>
+        <tr><td class="keys"><kbd class="mouse">Drag</kbd> the header</td><td>Move the window (and bring it to front)</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Double-click</kbd> the header</td><td>Maximize / restore</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Drag</kbd> the corner</td><td>Resize</td></tr>
+        <tr><td class="keys"><kbd class="mouse">Click</kbd> anywhere</td><td>Close an open context menu</td></tr>
+      </tbody></table></div>
+    </section>
+  </div>
+
+  <h2>Cheat sheet</h2>
+  <div class="panel glow">
+    <div class="grid g4" style="gap:10px">
+      <div><kbd>Ctrl</kbd>+<kbd>Z</kbd> Undo</div><div><kbd>Ctrl</kbd>+<kbd>Y</kbd> Redo</div><div><kbd>Ctrl</kbd>+<kbd>D</kbd> Duplicate</div><div><kbd>Ctrl</kbd>+<kbd>G</kbd> Group</div>
+      <div><kbd>Z</kbd> Skill tree</div><div><kbd>X</kbd> Matrix</div><div><kbd>C</kbd> Model Lab</div><div><kbd>P</kbd> Prestige</div>
+      <div><kbd>WASD</kbd> Pan</div><div><kbd>Q</kbd>/<kbd>E</kbd> Zoom</div><div><kbd>R</kbd> Rotate item</div><div><kbd>F</kbd> Flip item</div>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer"><div class="wrap">
+  <img src="assets/img/logo-sm.webp" alt="Node Factory" width="58" height="30">
+  <nav><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a><a href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener">Steam</a></nav>
+  <span>© KabreetGames · Fan-friendly docs, values from the current build</span>
+</div></footer>
+<a class="to-top" href="#main" aria-label="Back to top">↑</a>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

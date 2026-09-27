@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nodes · Node Factory Docs</title>
+<meta name="description" content="Every node in Node Factory with its recipe, capacity, heat, starting slots, upgrade costs and slot costs.">
+<meta property="og:title" content="Nodes · Node Factory Docs">
+<meta property="og:description" content="Every node in Node Factory with its recipe, capacity, heat, starting slots, upgrade costs and slot costs.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="theme-color" content="#080a19">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="nav-wrap">
+  <a class="brand" href="index.html"><img src="assets/img/logo-sm.webp" alt="Node Factory" width="66" height="34"><span>Docs</span></a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav"><a href="index.html">Home</a><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a></nav>
+  <a class="steam-btn" href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener"><img src="assets/img/icons/steam.webp" alt="" width="18" height="18"><span>Buy on Steam</span></a>
+</div></header>
+
+<main id="main">
+<div class="wrap">
+  <header class="page-head">
+    <span class="eyebrow">Node database</span>
+    <h1>All nodes</h1>
+    <p>Every buildable node, with values taken straight from the game data. Each recipe is one <b>set</b>. A node runs up to <b>capacity</b> sets per second, and its output is also multiplied by <a href="mechanics.html#heat">heat</a>, <a href="mechanics.html#bugs">bugs</a> and <a href="mechanics.html#prestige">prestige</a>.</p>
+  </header>
+
+  <div class="callout"><b>How to read a card</b> The left chips are inputs per set and the right chips are outputs per set. <b>Heat</b> is what the node adds to your factory while it's working. <b>Start slots</b> is how many you can build before buying more in the skill tree. Open <em>Costs &amp; scaling</em> for upgrade prices. <em>Sell value added</em> compares the Market value of the outputs with the inputs.</div>
+
+  <div class="toolbar">
+    <input id="node-search" class="search" type="search" placeholder="Search nodes or resources… e.g. tokens, energy, GPU" aria-label="Search nodes">
+    <div class="filters" role="group" aria-label="Filter by category">
+      <button class="filter" data-cat="All" aria-pressed="true">All</button>
+      <button class="filter" data-cat="Source" aria-pressed="false">Source</button>
+      <button class="filter" data-cat="Data" aria-pressed="false">Data</button>
+      <button class="filter" data-cat="Compute" aria-pressed="false">Compute</button>
+      <button class="filter" data-cat="Refining" aria-pressed="false">Refining</button>
+      <button class="filter" data-cat="AI Product" aria-pressed="false">AI Product</button>
+      <button class="filter" data-cat="Logistics" aria-pressed="false">Logistics</button>
+      <button class="filter" data-cat="Defense" aria-pressed="false">Defense</button>
+    </div>
+    <span id="node-count" class="muted small"></span>
+  </div>
+
+  <div id="node-grid" class="nodes"><noscript>Enable JavaScript to view the node database.</noscript></div>
+
+  <h2>Categories</h2>
+  <div class="grid g3">
+    <div class="panel"><h3>Source</h3><p>No inputs. They create Data Stream, Energy and Server Space from nothing. Each has <b>capacity 1</b> (Signal Booster: 5).</p></div>
+    <div class="panel"><h3>Data</h3><p>Harvesters that turn Data Stream and Training Data into specialized data types.</p></div>
+    <div class="panel"><h3>Compute</h3><p>CPU → GPU → Tensor. All three count as <b>Process (any)</b> for Tokenizers, Distillers, Balancers and Reasoning Engines.</p></div>
+    <div class="panel"><h3>Refining</h3><p>Combine data and compute into Tokens, Insight, Stability, Logic, Alignment, Security and QuantumOps.</p></div>
+    <div class="panel"><h3>AI Product</h3><p>End products worth billions to trillions per unit. Each one needs a deep supply chain.</p></div>
+    <div class="panel"><h3>Logistics &amp; Defense</h3><p>Markets, Collectors, Splits, Unions and Researchers are unlimited. Cannons and Fans protect and cool your factory.</p></div>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer"><div class="wrap">
+  <img src="assets/img/logo-sm.webp" alt="Node Factory" width="58" height="30">
+  <nav><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a><a href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener">Steam</a></nav>
+  <span>© KabreetGames · Fan-friendly docs, values from the current build</span>
+</div></footer>
+<a class="to-top" href="#main" aria-label="Back to top">↑</a>
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

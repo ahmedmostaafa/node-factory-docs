@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting Started · Node Factory Docs</title>
+<meta name="description" content="Your first ten minutes in Node Factory: place a Data Stream, wire a Training Crawler, sell at a Market, collect money, upgrade, and deploy your first AI model.">
+<meta property="og:title" content="Getting Started · Node Factory Docs">
+<meta property="og:description" content="Your first ten minutes in Node Factory: place a Data Stream, wire a Training Crawler, sell at a Market, collect money, upgrade, and deploy your first AI model.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="theme-color" content="#080a19">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="nav-wrap">
+  <a class="brand" href="index.html"><img src="assets/img/logo-sm.webp" alt="Node Factory" width="66" height="34"><span>Docs</span></a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav"><a href="index.html">Home</a><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a></nav>
+  <a class="steam-btn" href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener"><img src="assets/img/icons/steam.webp" alt="" width="18" height="18"><span>Buy on Steam</span></a>
+</div></header>
+
+<main id="main">
+<div class="wrap">
+  <header class="page-head">
+    <span class="eyebrow">Operator onboarding</span>
+    <h1>Getting started</h1>
+    <p>This walkthrough follows the in-game tutorial. By the end you will have a working pipeline, your first upgrade, and a deployed AI model that generates Research forever.</p>
+  </header>
+
+  <div class="steps">
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="welcome" width="420" height="420" aria-label="Welcome screen"></video></figure>
+      <div>
+        <h3>Welcome to the Node Factory</h3>
+        <p>Your goal is simple: scale this operation from a single node to a global intelligence network. There is no end screen. The game is about growing numbers, better layouts and faster runs.</p>
+        <p class="muted">The grid is endless. Pan with <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or by dragging with the <kbd class="mouse">right</kbd> or <kbd class="mouse">middle</kbd> mouse button. Zoom with the <kbd class="mouse">wheel</kbd> or <kbd>Q</kbd> / <kbd>E</kbd>.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="add-internet" width="420" height="420" aria-label="Placing the Data Stream node"></video></figure>
+      <div>
+        <h3>Place a Data Stream node</h3>
+        <p>Open the <b>Build Menu</b> at the bottom of the screen and place your first <a href="nodes.html#data-stream">Data Stream</a>. It needs no input and produces <b>1 Data Stream per second</b>. This is where your data pipeline begins.</p>
+        <p class="muted">Every node type has a limited number of <b>slots</b>. You start with one Data Stream and one Training Crawler. You buy more slots with Research later.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="what-internet" width="420" height="420" aria-label="Data Stream explained"></video></figure>
+      <div>
+        <h3>Understand what it makes</h3>
+        <p>The Data Stream node pulls in raw traffic from external servers. That traffic is the <b>fuel</b> for everything you build next. On its own it is worthless: <b>Data Stream can't be sold</b>, so you have to refine it.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="add-crawler" width="420" height="420" aria-label="Placing a Training Crawler"></video></figure>
+      <div>
+        <h3>Add a Training Crawler</h3>
+        <p>Place a <a href="nodes.html#training-crawler">Training Crawler</a> nearby. It converts <b>1 Data Stream into 1 Training Data</b>, the first sellable resource and the base of almost every chain.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="how-to-connect" width="420" height="420" aria-label="Port shapes and colors"></video></figure>
+      <div>
+        <h3>Read the ports</h3>
+        <p>Data flows strictly from <b>output</b> (right side) to <b>input</b> (left side). Always match the port <b>shape</b> and <b>color</b>. Each resource has its own, as listed on the <a href="resources.html">Resources</a> page. Generic ports such as <em>Data (any)</em> or <em>Process (any)</em> accept a whole family of resources.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="connect-crawler" width="420" height="420" aria-label="Connecting two nodes"></video></figure>
+      <div>
+        <h3>Connect them</h3>
+        <p>Click the output port of the Data Stream and drag to the input port of the Training Crawler. The wire lights up and data starts flowing.</p>
+        <div class="callout tip"><b>Made a mistake?</b> Press <kbd>Ctrl</kbd><span class="plus">+</span><kbd>Z</kbd> to undo and <kbd>Ctrl</kbd><span class="plus">+</span><kbd>Y</kbd> to redo. The history is 100 steps deep. Double-click a wire to delete it.</div>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="capacity" width="420" height="420" aria-label="Node capacity tooltip"></video></figure>
+      <div>
+        <h3>Watch the capacity</h3>
+        <p>Click a node to see its tooltip. Every production node has a <b>capacity</b>, the maximum number of recipes (sets) it can run per second. If you feed it more than that, the extra is wasted and the node shows a <span class="hl">bottleneck</span> warning. Keep inputs balanced. See <a href="mechanics.html#production">Production &amp; capacity</a>.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="add-market" width="420" height="420" aria-label="Placing a Market"></video></figure>
+      <div>
+        <h3>Place a Market</h3>
+        <p>Data only has value when it's sold. The <a href="nodes.html#market">Market</a> is your gateway to the economy. You can build as many as you want.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="connect-market" width="420" height="420" aria-label="Connecting the Market"></video></figure>
+      <div>
+        <h3>Sell your Training Data</h3>
+        <p>Drag a wire from the Training Crawler's output to the Market's input. The Market's port is <b>dynamic</b>: it changes to match any sellable resource you connect.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="inspect-market" width="420" height="420" aria-label="Market tooltip"></video></figure>
+      <div>
+        <h3>Check the price</h3>
+        <p>Click the Market to see the sell price of what it's receiving. Prices never fluctuate. They only go up when you buy <b>Sell Rate</b> upgrades in the skill tree, up to 6× the base price. Training Data sells for <span class="money">$1.50</span> per unit.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="add-collector" width="420" height="420" aria-label="Placing a Collector"></video></figure>
+      <div>
+        <h3>Place a Collector</h3>
+        <p>Money doesn't count until it's in the bank. The <a href="nodes.html#collector">Collector</a> is your local vault for the revenue a Market generates.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="connect-collector" width="420" height="420" aria-label="Connecting Market to Collector"></video></figure>
+      <div>
+        <h3>Wire Market → Collector</h3>
+        <p>Connect the Market's green Money output to the Collector. The Collector's bar fills up as money arrives.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="collect" width="420" height="420" aria-label="Collecting money"></video></figure>
+      <div>
+        <h3>Collect your earnings</h3>
+        <p>Money doesn't move by itself. Click <b>Collect</b> on the Collector (or right-click → Collect) to add it to your wallet. Later, the <b>Auto Collect</b> skill ($5M) banks everything instantly.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="skill-tree" width="420" height="420" aria-label="Buying the first upgrade"></video></figure>
+      <div>
+        <h3>Buy your first upgrade</h3>
+        <p>Open the <b>Skill Tree</b> (<kbd>Z</kbd>) and buy <b>Data Stream Speed I</b>. It costs <span class="money">$10</span> and adds another 1× base rate. Every rate upgrade adds the same flat amount, and costs grow ×1.07 to ×1.13 per level.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="add-researcher" width="420" height="420" aria-label="Placing a Researcher"></video></figure>
+      <div>
+        <h3>Place a Researcher</h3>
+        <p>Raw hardware only takes you so far. Place a <a href="nodes.html#researcher">Researcher</a> anywhere on the grid. It banks resources for the <b>Model Lab</b>.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="connect-researcher" width="420" height="420" aria-label="Connecting the Researcher"></video></figure>
+      <div>
+        <h3>Feed it Training Data</h3>
+        <p>An output port can have several wires. Drag a <b>second</b> connection from the Training Crawler into the Researcher. It will pull Training Data alongside your Market chain, so you don't need to touch that connection.</p>
+      </div>
+    </section>
+
+    <section class="step">
+      <figure class="media"><video class="clip" data-loop="deploy" width="420" height="420" aria-label="Deploying AutoGrader"></video></figure>
+      <div>
+        <h3>Deploy Auto Grader</h3>
+        <p>Open the <b>Model Lab</b> (<kbd>C</kbd>). <b>Auto Grader</b> needs <b>20 Training Data</b> banked before it can go live. Once it's ready, hit <b>Deploy</b>. This is permanent: Auto Grader now generates <span class="research">Research</span> every second, and Research unlocks new node slots.</p>
+      </div>
+    </section>
+  </div>
+
+  <h2>What next?</h2>
+  <div class="grid g3">
+    <div class="panel"><h3>Refine for profit</h3><p>An <a href="nodes.html#nlp-preprocessor">NLP Preprocessor</a> turns 3 Training Data ($4.50) into 1 NLP Data ($12.50). Refining almost always beats selling raw.</p></div>
+    <div class="panel"><h3>Level your models</h3><p>Keep the Researcher fed. Every model level multiplies its Research output by ×1.5 and unlocks the next model at level 8. See the <a href="mechanics.html#models">Model Lab</a>.</p></div>
+    <div class="panel"><h3>Get power online</h3><p>Buy <b>Processing Base</b> in the skill tree to unlock your first <a href="nodes.html#power">Power</a> and <a href="nodes.html#compute-unit">Compute Unit</a> slots. That opens the whole compute tier.</p></div>
+  </div>
+  <p style="margin-top:24px"><a class="btn" href="tips.html">Read the tips &amp; tricks →</a></p>
+</div>
+</main>
+
+<footer class="site-footer"><div class="wrap">
+  <img src="assets/img/logo-sm.webp" alt="Node Factory" width="58" height="30">
+  <nav><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a><a href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener">Steam</a></nav>
+  <span>© KabreetGames · Fan-friendly docs, values from the current build</span>
+</div></footer>
+<a class="to-top" href="#main" aria-label="Back to top">↑</a>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

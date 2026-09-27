@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tips & Tricks · Node Factory Docs</title>
+<meta name="description" content="Strategies for Node Factory: balancing ratios, managing heat, using the Matrix, leveling models and timing your prestige for faster runs.">
+<meta property="og:title" content="Tips & Tricks · Node Factory Docs">
+<meta property="og:description" content="Strategies for Node Factory: balancing ratios, managing heat, using the Matrix, leveling models and timing your prestige for faster runs.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="theme-color" content="#080a19">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="nav-wrap">
+  <a class="brand" href="index.html"><img src="assets/img/logo-sm.webp" alt="Node Factory" width="66" height="34"><span>Docs</span></a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav"><a href="index.html">Home</a><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a></nav>
+  <a class="steam-btn" href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener"><img src="assets/img/icons/steam.webp" alt="" width="18" height="18"><span>Buy on Steam</span></a>
+</div></header>
+
+<main id="main">
+<div class="wrap">
+  <header class="page-head">
+    <span class="eyebrow">Operator playbook</span>
+    <h1>Tips &amp; tricks</h1>
+    <p>Practical strategies, backed by the game's actual numbers. The tags show when each tip matters most:
+      <span class="badge early">Early</span> <span class="badge mid">Mid</span> <span class="badge late">Late</span> <span class="badge prestige">Prestige</span></p>
+  </header>
+
+  <h2 style="margin-top:0">Economy &amp; layout</h2>
+  <div class="grid g2">
+    <article class="panel tip-card"><h3><img src="assets/img/icons/funnel.webp" alt="">Never sell raw if you can refine</h3>
+      <p><span class="badge early">Early</span></p>
+      <p>Refining almost always multiplies value. 3 Training Data ($4.50) become 1 NLP Data ($12.50), a ×2.8 gain. 30 Training Data become 1 Vision Data ($375), ×8.3. The deeper chains reach ×90 and more. Each <a href="nodes.html">node card</a> shows its <em>Sell value added</em>.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/tune.webp" alt="">Balance your ratios</h3>
+      <p><span class="badge early">Early</span></p>
+      <p>A node only runs full sets. At base rates, one NLP Preprocessor needs <b>3 Training Data/s</b>, so three Crawlers. A Vision Encoder (capacity 2, 30 per set) needs <b>60/s</b>. Starving a node wastes its capacity, and overfeeding it wastes the input. Match <em>input demand × capacity</em> to what your suppliers produce.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/fast-forward.webp" alt="">Spam the cheap early upgrades</h3>
+      <p><span class="badge early">Early</span></p>
+      <p>Data Stream, Training Crawler and Power upgrades grow only <b>×1.07</b> per level. Everything else grows ×1.13. Each level adds a full 1× base rate, so level 10 means 10× output, and the Crawler gets an extra ×1.25 every 100 levels. Keep those three topped up with the ×10 buy mode.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/money.webp" alt="">Buy Auto Collect early</h3>
+      <p><span class="badge early">Early</span></p>
+      <p>Money sitting in a Collector can't be spent. <b>Auto Collect</b> ($5M, one-time) banks every coin the moment it arrives, so you can keep buying upgrades without clicking.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/split.webp" alt="">Use Split to set priorities</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>When one output feeds several nodes, it's shared <b>by demand</b>, and Markets and Researchers only get an average share. If you want exactly 25% going to your Researcher, put a <a href="nodes.html#split">Split</a> in front and set the slider. Chain Splits for three-way or four-way divisions.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/gears.webp" alt="">Build modules, then duplicate</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>Design one balanced production block, select it, <kbd>Ctrl</kbd>+<kbd>G</kbd> to group it, then <kbd>Ctrl</kbd>+<kbd>D</kbd> to duplicate it when you have free slots. Groups keep huge factories readable and easy to move.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/internet.webp" alt="">Signal Booster is a Data Stream multiplier</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>At capacity 5, one Booster turns 100 Data Stream + 50 Energy per second into <b>200</b> Data Stream, a net +100/s from a single node. You can only own one, so feed it fully: that takes 5 Power nodes at base rate.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/cpu-tower.webp" alt="">CPU is for GPUs, not for selling</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>A Compute Unit makes 100 heat for just $95/s of CPU Process, the worst heat-to-value ratio in the game. Feed it into <a href="nodes.html#gpu">GPUs</a> (capacity 3, ×5 output) and <a href="nodes.html#tensor-processing">Tensor units</a> (capacity 6, ×5 output), or use it as <em>Process (any)</em> for Tokenizers.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/robot.webp" alt="">Chase the top-tier products</h3>
+      <p><span class="badge late">Late</span></p>
+      <p>Each tier sells for roughly 10–100× the previous one. One Predictive Trading Bot at base rate earns $2.5T/s, and the Generative Art Studio turns ~$3.75M of Vision Data into a $57.5B token. Once a new tier is reachable, redirect resources to it and sell the leftovers.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/low-price.webp" alt="">Sell Rate upgrades are cheap multipliers</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>Each resource's sell price can go up to 6× with 5 upgrades at ×1.5 cost growth. For whatever you sell most, that's a 6× income boost that costs little compared with building 5 more production lines.</p></article>
+  </div>
+
+  <h2>Heat &amp; bugs</h2>
+  <div class="grid g2">
+    <article class="panel tip-card"><h3><img src="assets/img/icons/freezing.webp" alt="">Know your heat budget</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>The factory settles at <b>24 + total heat ÷ 10</b> °C. Stay under <b>60 °C</b> (total heat ≤ 360) for full speed, or 100 °C (≤ 760) for ×0.9. Past 100 °C you lose 30%, and past 500 °C you lose 80%. Use the <a href="formulas.html#calc-heat">heat calculator</a>.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/image-3.webp" alt="">Use zero-heat nodes</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>Vision Encoder, Acoustic Model and Frame Sequencer make <b>0 heat</b>. Auto Labeling Farm (5) and Privacy Shield Bot (3) are nearly free too. Build them freely, and spend your heat budget on the hot ones: Enterprise Chatbot 150, Chatbot 120, Tensor 110.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/fan.webp" alt="">Level fans, don't just build them</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>A level-1 fan only gives −4 heat. Cooling scales with level and gets ×1.5 every 20 levels: level 20 gives −120, and level 40 gives −360 per fan. Past 0 °C you get <b>bonus</b> speed (×1.2), and near absolute zero up to <b>×4</b>.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/cannon.webp" alt="">Bugs are free money</h3>
+      <p><span class="badge early">Early</span></p>
+      <p>Every bug you click pays about <b>10 seconds of income</b>, but each one halves a node's output and adds 100 heat. Click them while you're active. For idle play, place an <a href="nodes.html#antimalware-cannon">Antimalware Cannon</a> in the middle of your densest area and upgrade its range.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/store-1.webp" alt="">Markets ignore heat</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>Heat and bugs only slow down <em>production</em> nodes. Markets always sell at full price, so a hot factory loses output but never loses sale value.</p></article>
+  </div>
+
+  <h2>Matrix, research &amp; prestige</h2>
+  <div class="grid g2">
+    <article class="panel tip-card"><h3><img src="assets/img/icons/puzzle-1.webp" alt="">Roll cheap Matrix items often</h3>
+      <p><span class="badge early">Early</span></p>
+      <p>A Matrix bonus is centered on the <em>number of rolls</em>: after 50 rolls expect about +50%. Early items are cheap (the Training Data item unlocks for $225), so roll them a lot. Remember the bonus <b>only applies while the item is placed</b>, so prioritize grid space for your bottleneck nodes.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/pattern-lock.webp" alt="">Shrink shapes with Research</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>Reshaping tends toward smaller pieces as its level rises, reaching 1–2 cell shapes after 15 levels. Small shapes let you fit many more bonuses on the 5×8 grid. Use rotate (<kbd>R</kbd>) and flip (<kbd>F</kbd>) to pack them tightly.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/chemistry-lab-instrument.webp" alt="">Keep a Researcher always fed</h3>
+      <p><span class="badge early">Early</span></p>
+      <p>Research buys node slots, and slots are the real limit on growth. Each model level gives ×1.5 Research, and level 8 unlocks the next model with a 20–40× bigger base. Keep a steady share of every required resource flowing into a Researcher.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/prestige.webp" alt="">Models survive prestige</h3>
+      <p><span class="badge prestige">Prestige</span></p>
+      <p>Model levels and the research stock are <b>kept</b> when you go public. Before prestiging, dump everything you can into your Researchers and level models, because that progress carries into the next run.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/investment.webp" alt="">Prestige early, then when chips grow 50–100%</h3>
+      <p><span class="badge prestige">Prestige</span></p>
+      <p>Your first prestige at $1B lifetime gives 150 chips, which <b>doubles</b> production. After that, chips grow slowly (twice the money gives only ×1.35 chips), so reset when the new chips would add about 50–100% to what you own. Try the <a href="formulas.html#calc-prestige">prestige planner</a>.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/night.webp" alt="">Upgrade Offline Time before breaks</h3>
+      <p><span class="badge mid">Mid</span></p>
+      <p>Offline earnings stop at your Offline Time cap: 20 minutes at the start, +20 per level. If you're going to sleep, a few levels (and the Offline Time Matrix item) turn eight hours away into real progress.</p></article>
+
+    <article class="panel tip-card"><h3><img src="assets/img/icons/exam.webp" alt="">Don't exchange chips casually</h3>
+      <p><span class="badge prestige">Prestige</span></p>
+      <p>Exchanging an AI Chip gives $100,000, but every chip you spend lowers your permanent bonus by 0.67%. It only pays off very early in a run, when $100K really matters.</p></article>
+  </div>
+
+  <div class="callout tip" style="margin-top:32px"><b>Golden rule</b> Find the bottleneck, then fix it. Click each node and look at its multiplier and capacity warning. The slowest link in a chain sets the speed of everything after it.</div>
+</div>
+</main>
+
+<footer class="site-footer"><div class="wrap">
+  <img src="assets/img/logo-sm.webp" alt="Node Factory" width="58" height="30">
+  <nav><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a><a href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener">Steam</a></nav>
+  <span>© KabreetGames · Fan-friendly docs, values from the current build</span>
+</div></footer>
+<a class="to-top" href="#main" aria-label="Back to top">↑</a>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

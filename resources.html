@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resources · Node Factory Docs</title>
+<meta name="description" content="Every resource in Node Factory: wire color, port shape, unit, market price, maximum price, producers and consumers.">
+<meta property="og:title" content="Resources · Node Factory Docs">
+<meta property="og:description" content="Every resource in Node Factory: wire color, port shape, unit, market price, maximum price, producers and consumers.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="theme-color" content="#080a19">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="nav-wrap">
+  <a class="brand" href="index.html"><img src="assets/img/logo-sm.webp" alt="Node Factory" width="66" height="34"><span>Docs</span></a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav"><a href="index.html">Home</a><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a></nav>
+  <a class="steam-btn" href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener"><img src="assets/img/icons/steam.webp" alt="" width="18" height="18"><span>Buy on Steam</span></a>
+</div></header>
+
+<main id="main">
+<div class="wrap">
+  <header class="page-head">
+    <span class="eyebrow">Resource database</span>
+    <h1>Resources</h1>
+    <p>Every wire in your factory carries one resource. Its <b>color</b> and <b>port shape</b> tell you what it is. Only matching ports connect, and generic ports accept whole families.</p>
+  </header>
+
+  <h2 style="margin-top:0">Port shapes</h2>
+  <div class="grid g4">
+    <div class="panel"><p><span class="chip" style="--c:#1A3FC0"><i class="dot square"></i>Square</span></p><p class="small muted">Raw inputs: Data Stream, Energy, Server Space.</p></div>
+    <div class="panel"><p><span class="chip" style="--c:#27CA81"><i class="dot circle"></i>Circle</span></p><p class="small muted">Data: Training, NLP, Vision, Acoustic, Sensitive, Market, Cleaned, Labeled…</p></div>
+    <div class="panel"><p><span class="chip" style="--c:#EBBF20"><i class="dot rotate"></i>Diamond</span></p><p class="small muted">Compute: CPU, GPU and Inference Processing.</p></div>
+    <div class="panel"><p><span class="chip" style="--c:#DD27B4"><i class="dot octa"></i>Octagon</span></p><p class="small muted">Refined: Tokens, Insight, Stability, Logic, Alignment…</p></div>
+    <div class="panel"><p><span class="chip" style="--c:#4A7CE9"><i class="dot triangle"></i>Triangle</span></p><p class="small muted">AI product tokens and Money.</p></div>
+    <div class="panel"><p><span class="chip" style="--c:#27CA81"><i class="dot circle"></i>Data (any)</span></p><p class="small muted">Accepts any of the 9 data types.</p></div>
+    <div class="panel"><p><span class="chip" style="--c:#EBBF20"><i class="dot rotate"></i>Process (any)</span></p><p class="small muted">Accepts CPU, GPU or Inference Processing.</p></div>
+    <div class="panel"><p><span class="chip" style="--c:#D4D4D4"><i class="dot triangle"></i>Dynamic</span></p><p class="small muted">Market, Split, Union and Researcher ports take the type of whatever connects first.</p></div>
+  </div>
+
+  <h2>All resources</h2>
+  <p class="muted">Click a column header to sort. <b>Max price</b> is the price after all 5 Sell Rate upgrades (6× base). Sell prices are not affected by prestige.</p>
+  <div class="toolbar">
+    <div class="filters" role="group" aria-label="Filter by group">
+      <button class="filter" data-group="All" aria-pressed="true">All</button>
+      <button class="filter" data-group="Raw" aria-pressed="false">Raw</button>
+      <button class="filter" data-group="Data" aria-pressed="false">Data</button>
+      <button class="filter" data-group="Compute" aria-pressed="false">Compute</button>
+      <button class="filter" data-group="Refined" aria-pressed="false">Refined</button>
+      <button class="filter" data-group="AI Product" aria-pressed="false">AI Product</button>
+      <button class="filter" data-group="Currency" aria-pressed="false">Currency</button>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr>
+        <th data-sort="name">Resource</th><th data-sort="group">Group</th><th class="num" data-sort="price">Base price</th><th class="num" data-sort="max">Max price</th>
+        <th>Unit</th><th>Produced by</th><th>Used by</th><th>Notes</th>
+      </tr></thead>
+      <tbody id="res-body"><tr><td colspan="8"><noscript>Enable JavaScript to view the resource table.</noscript></td></tr></tbody>
+    </table>
+  </div>
+
+  <h2>Currencies</h2>
+  <div class="grid g3">
+    <div class="panel"><h3 class="money">Money ($)</h3><p>Earned by selling at a Market and banking it at a Collector. It pays for rate and sell-price upgrades, Matrix cells and re-rolls, Cannon and Fan slots, and Offline Time. Lifetime Money decides your prestige reward.</p></div>
+    <div class="panel"><h3 class="research">Research (RP)</h3><p>Generated every second by deployed models in the <a href="mechanics.html#models">Model Lab</a>. It pays for extra node slots, Processing Base and Matrix shape upgrades. Don't confuse it with the <em>research stock</em>, which holds the resources your Researcher banks.</p></div>
+    <div class="panel"><h3 style="color:#ffae70">AI Chips</h3><p>Earned by <a href="mechanics.html#prestige">prestige</a>. Each chip adds +1/150 (≈0.67%) to all production rates and model rewards, permanently. You can exchange chips for $100,000 each, but that lowers the bonus.</p></div>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer"><div class="wrap">
+  <img src="assets/img/logo-sm.webp" alt="Node Factory" width="58" height="30">
+  <nav><a href="getting-started.html">Start</a><a href="mechanics.html">Mechanics</a><a href="nodes.html">Nodes</a><a href="resources.html">Resources</a><a href="formulas.html">Formulas</a><a href="tips.html">Tips</a><a href="controls.html">Controls</a><a href="https://store.steampowered.com/app/4513380/Node_Factory/" target="_blank" rel="noopener">Steam</a></nav>
+  <span>© KabreetGames · Fan-friendly docs, values from the current build</span>
+</div></footer>
+<a class="to-top" href="#main" aria-label="Back to top">↑</a>
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
