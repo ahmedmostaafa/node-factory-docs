@@ -60,7 +60,7 @@
         <h2><span class="tag">//</span> Production &amp; capacity</h2>
         <div class="split">
           <div>
-            <p>Every production node has a <b>recipe</b> (inputs → outputs) and a <b>capacity</b>: the most recipes, or <em>sets</em>, it can complete per second. Capacity starts at the node's base rate (usually 1) and grows with skill-tree upgrades, the Matrix and prestige.</p>
+            <p>Every production node has a <b>recipe</b> (inputs → outputs) and a <b>capacity</b>: the most recipes, or <em>sets</em>, it can complete per second. Base capacity grows ×3 per tier, from 3 sets/s for a Data Stream up to about 20,000 for the Predictive Trading Bot, so every new tier arrives with real weight. It then grows with skill-tree upgrades, the Matrix and prestige.</p>
             <p>Each tick, a node:</p>
             <ol>
               <li>Checks how many full sets its stored inputs can pay for. It is limited by the <b>scarcest</b> input.</li>
@@ -71,7 +71,7 @@
           </div>
           <figure class="media"><video class="clip" data-loop="capacity" width="420" height="420" aria-label="Capacity tooltip in game"></video><figcaption>The tooltip shows capacity and a bottleneck warning.</figcaption></figure>
         </div>
-        <p>The <b>multiplier</b> combines the factory's heat multiplier with the bugs on that node: <code>M = heat multiplier ÷ (1 + bugs)</code>. A healthy, cool factory runs at ×1.0 to ×1.1. Sources without inputs just produce <em>capacity × output × M</em> per second.</p>
+        <p>The <b>multiplier</b> combines the factory's heat multiplier with the bugs on that node: <code>M = heat multiplier × 0.75<sup>bugs</sup></code> (each attached bug costs 25%). A healthy, cool factory runs at ×1.0 to ×1.1. Sources without inputs just produce <em>capacity × output × M</em> per second.</p>
         <div class="callout warn"><b>Bottlenecks</b> If a node receives more input per second than its capacity can use, the surplus piles up and the node shows a <em>capacity warning</em>. Either add another node of that type, upgrade its rate, or split the flow elsewhere.</div>
         <p class="muted small">→ <a href="formulas.html#f-production">Production formulas</a> · <a href="formulas.html#f-rate">Rate stat formula</a></p>
       </section>
@@ -105,9 +105,9 @@
         <div class="split rev">
           <figure class="media"><video class="clip" data-loop="inspect-market" width="420" height="420" aria-label="Market tooltip"></video></figure>
           <div>
-            <p>A <b>Market</b> sells <b>everything</b> it receives, as fast as it arrives, for Money. It has no capacity limit. The price per unit is that resource's current <b>sell price</b>: the base price from the <a href="resources.html">resource table</a>, raised by Sell Rate upgrades (5 levels, +1× base each, up to <b>6× base</b>). Markets are <b>not</b> affected by heat, bugs or prestige.</p>
-            <p><b>Can't be sold:</b> Data Stream and Energy. Everything else has a price, from Training Data at $1.50 to the Stock Token at $2.5T.</p>
-            <p>A <b>Collector</b> stores the Money its Markets send. Click <b>Collect</b> (or right-click → Collect) to bank it. The bar is just a visual: it's full at about 100 seconds of income, but there's no real cap. Buy <b>Auto Collect</b> (<span class="money">$5M</span>, one-time skill) and every coin is banked instantly.</p>
+            <p>A <b>Market</b> sells <b>everything</b> it receives, as fast as it arrives, for Money. It has no capacity limit. The price per unit is that resource's current <b>sell price</b>: the base price from the <a href="resources.html">resource table</a>, raised by Sell Rate upgrades (5 levels, +20% each, up to <b>2× base</b>). Refining always pays more than selling the ingredients, even fully upgraded. Markets are <b>not</b> affected by heat, bugs or prestige.</p>
+            <p><b>Can't be sold:</b> Data Stream and Energy. Everything else has a price, from Training Data at $0.16 to the Stock Token at $7,580.</p>
+            <p>A <b>Collector</b> stores the Money its Markets send. Click <b>Collect</b> (or right-click → Collect) to bank it. The bar is just a visual: it's full at about 100 seconds of income, but there's no real cap. Buy <b>Auto Collect</b> (<span class="money">$53K</span>, one-time skill) and every coin is banked instantly.</p>
           </div>
         </div>
       </section>
@@ -116,12 +116,12 @@
         <h2><span class="tag">//</span> Node slots</h2>
         <p>Every production node type has a <b>slot limit</b>. You start with 1 Data Stream and 1 Training Crawler, and 0 of everything else. You unlock more in the skill tree:</p>
         <ul>
-          <li>Most node slots cost <span class="research">Research</span>, up to 10 extra slots per type. The <b>Signal Booster</b> is limited to a single slot.</li>
-          <li><b>Processing Base</b> (4.75e4 RP) gives your first Power and Compute Unit slots at once.</li>
-          <li><b>Antimalware Cannon</b> and <b>Fan</b> slots cost <span class="money">Money</span>, up to 100 each.</li>
+          <li>Node slots cost <span class="research">Research</span>, up to 12 extra slots per type. Each extra copy costs ×5 the previous one.</li>
+          <li><b>Processing Base</b> (750 RP) gives your first Power and Compute Unit slots at once.</li>
+          <li><b>Antimalware Cannon</b> and <b>Fan</b> slots cost <span class="money">Money</span> (×3 per slot), up to 20 cannons and 60 fans.</li>
           <li>Market, Collector, Split, Union and Researcher are <b>unlimited</b> and free.</li>
         </ul>
-        <p>Slot prices grow very steeply (×10 raised to <em>slots × power</em>). The first extra Training Crawler costs <b>17,500 RP</b>, the second 1.75M RP.</p>
+        <p><b>Data Stream, Power and Edge Node</b> copies are much pricier (×32, ×16 and ×43 per copy): every copy shares the line's upgrade level, so a new one multiplies that whole line. Each <a href="nodes.html">node card</a> shows its next slot price.</p>
       </section>
 
       <section id="skill-tree">
@@ -130,10 +130,10 @@
           <div>
             <p>Open it with <kbd>Z</kbd>. The tree starts at <b>Data Stream Speed I</b> and branches into about 100 nodes. Each unlock reveals its neighbours. There are four kinds of skill:</p>
             <ul>
-              <li><b>Rate upgrades</b> (Money, 5,000 levels): each level adds <b>+1× the node's base rate</b>. Cost grows ×1.07 (early nodes) or ×1.13 per level. A few nodes auto-scale on top: Power ×1.2 every 30 levels, Training Crawler ×1.25 every 100, NLP Preprocessor ×1.1 every 50.</li>
-              <li><b>Sell Rate upgrades</b> (Money, 5 levels, ×1.5 cost each): +1× base price per level.</li>
+              <li><b>Rate upgrades</b> (Money, 5,000 levels): each level adds <b>+1× the node's base rate</b>, and every <b>25 levels the rate doubles</b> (a milestone). Cost grows ×1.1 per level for Data Stream, Training Crawler, NLP Preprocessor, Power and Edge Node, and ×1.12 for everything else.</li>
+              <li><b>Sell Rate upgrades</b> (Money, 5 levels, ×1.5 cost each): +20% price per level, up to ×2.</li>
               <li><b>Slot unlocks</b> (mostly Research): +1 node of that type.</li>
-              <li><b>Utility</b>: Auto Collect, Processing Base, Offline Time (+20 min per level), Fan cooling, Cannon fire rate and range.</li>
+              <li><b>Utility</b>: Auto Collect, Processing Base, Offline Time (+2 h per level), Fan cooling, Cannon fire rate and range.</li>
             </ul>
             <p>Use the buy-mode switch (<b>×1 / ×10 / ×100 / Max</b>) to buy many levels at once. <kbd class="mouse">Right-click</kbd> a skill to center the view on it.</p>
           </div>
@@ -148,13 +148,13 @@
         <p>So a factory with a total of 500 heat settles around 74 °C, and one with 2,000 heat reaches 224 °C. Changes take about 10 seconds to settle. A node's own heat ramps up over 2 seconds when it starts working and cools to 0 when idle.</p>
         <p>Temperature sets a global <b>production multiplier</b> for all production nodes:</p>
         <div class="heatbar" aria-hidden="true">
-          <div style="flex:1.2;background:#54f8ff">×4<br>−273</div><div style="flex:1;background:#7ff9ff">×3</div><div style="flex:1;background:#a4fbff">×2</div><div style="flex:1;background:#c9fdff">×1.5</div><div style="flex:1.4;background:#dffcff">×1.2</div>
+          <div style="flex:1.2;background:#54f8ff">×1.6<br>−273</div><div style="flex:1;background:#7ff9ff">×1.5</div><div style="flex:1;background:#a4fbff">×1.4</div><div style="flex:1;background:#c9fdff">×1.3</div><div style="flex:1.4;background:#dffcff">×1.2</div>
           <div style="flex:.8;background:#54ff5e">×1.1</div><div style="flex:1;background:#8dff93">×1.0</div><div style="flex:1;background:#c1ffc5">×0.9</div><div style="flex:2;background:#ffdc5e">×0.7</div><div style="flex:1;background:#ff463c;color:#fff">×0.2</div>
         </div>
         <div class="heatlabels"><span>−273 °C</span><span>0 °C</span><span>60 °C</span><span>100 °C</span><span>500 °C +</span></div>
         <div class="table-wrap" style="margin-top:18px"><table><thead><tr><th>Temperature</th><th class="num">Multiplier</th><th>State</th></tr></thead><tbody id="heat-body"></tbody></table></div>
-        <p>Above 500 °C the factory is in <b>Overload</b>: fire particles appear and output falls to 20%. Below 0 °C ice particles appear and you get a bonus. With enough fans you can push toward absolute zero for up to <b>×4</b>.</p>
-        <p><b>Fans</b> cool the factory. Each fan provides <em>−4 × level</em> heat, ×1.5 every 20 levels. Fan slots and fan upgrades cost Money. Malware bugs add heat too, about 100 each.</p>
+        <p>Above 500 °C the factory is in <b>Overload</b>: fire particles appear and output falls to 20%. Below 0 °C ice particles appear and you get a bonus. With enough fans you can push toward absolute zero for up to <b>×1.6</b>.</p>
+        <p><b>Fans</b> cool the factory. Each fan provides <em>−30 × level</em> heat. Fan slots and fan upgrades cost Money. Malware bugs add heat too, about 100 each.</p>
         <p class="muted small">→ <a href="formulas.html#f-heat">Heat formulas</a> · <a href="formulas.html#calc-heat">Heat calculator</a></p>
       </section>
 
@@ -162,9 +162,9 @@
         <h2><span class="tag">//</span> Malware bugs</h2>
         <div class="split">
           <div>
-            <p>Once the tutorial is done, <b>malware bugs</b> start crawling into your factory: roughly one every <b>60 s</b> (±20%) while the game is focused, or every 300 s when it's in the background. At most 5 are active at a time.</p>
-            <p>A bug latches onto a random production node and <b>divides its output</b>: one bug means ×½, two bugs ×⅓, and so on. Each bug also adds about <b>100 heat</b> to the factory.</p>
-            <p><b>Kill them</b> by clicking them. You're rewarded with about <b>10 seconds of your current income</b> (±20%). Or build an <a href="nodes.html#antimalware-cannon">Antimalware Cannon</a>: it turns toward the nearest bug in range and zaps it with a laser. Upgrade its fire rate (+1 shot/s per level) and range (+1% per level). There are achievements for 50, 200 and 500 kills.</p>
+            <p>Once the tutorial is done, <b>malware bugs</b> start crawling into your factory: roughly one every <b>60 s</b> (±20%), and <b>only while you are looking at the game</b>: an unattended factory is never punished. At most 3 are active at a time.</p>
+            <p>A bug latches onto a random production node and costs it <b>25% of its output</b> (two bugs: ×0.56). Each bug also adds about <b>100 heat</b> to the factory.</p>
+            <p><b>Kill them</b> by clicking them. You're rewarded with about <b>30 seconds of your current income</b> (±20%), and quick successive clicks build a streak worth up to +100%. Cannon kills pay half. Or build an <a href="nodes.html#antimalware-cannon">Antimalware Cannon</a>: it turns toward the nearest bug in range and zaps it with a laser. Upgrade its fire rate (+1 shot/s per level) and range (+1% per level). There are achievements for 50, 200 and 500 kills.</p>
           </div>
           <figure class="media"><img class="shot" src="assets/img/shots/cannons.webp" alt="Antimalware cannons with their range circles" width="1600" height="900" loading="lazy"><figcaption>Cannons and their red range circles</figcaption></figure>
         </div>
@@ -177,10 +177,10 @@
           <div>
             <p>The Matrix is a <b>5 × 8 grid</b> of plug-in cells (18 unlocked at the start). You fill it with <b>items</b>, one per node type plus Fan and Offline Time. Each item has a <b>shape</b>, like a puzzle piece, and a <b>% bonus</b> to its node's rate. The bonus only counts while the item is <b>placed on the grid</b>.</p>
             <ul>
-              <li><b>Unlock</b> an item with Money.</li>
-              <li><b><kbd class="mouse">Left-click</kbd> a slot to randomize</b> the bonus (Money, ×1.07 per roll). The result is random but centered on the roll count: after <em>s</em> rolls you'll get about <em>s</em>%, somewhere between <em>s − 20</em> and <em>s + 20</em>.</li>
-              <li><b><kbd class="mouse">Right-click</kbd> a slot to reshape</b> the item (Research, ×1.07 per level). The more you reshape, the smaller the shapes get on average, down to a single cell.</li>
-              <li><b>Unlock more cells</b> with Money: $1M for the first extra cell, ×4 for each one after that.</li>
+              <li><b>Unlock</b> an item with Money. Each item is priced for the moment its node arrives: about two minutes of your income at that point.</li>
+              <li><b><kbd class="mouse">Left-click</kbd> a slot to randomize</b> the bonus (Money, ×1.07 per roll). Rolls are centred on the roll count (about +1% per roll) and <b>can only improve</b> the bonus. After 5 rolls without improvement, the next one is guaranteed to beat it.</li>
+              <li><b><kbd class="mouse">Right-click</kbd> a slot to reshape</b> the item (Research, ×1.07 per level). You get <b>three shapes to pick from</b>; click outside them to keep the current one. Shapes start at 7 cells and lose <b>one cell every 5 reshapes</b>, down to a single cell after 30; only the layout is random.</li>
+              <li><b>Unlock more cells</b> with Money: $270K for the first extra cell, ×4 for each one after that.</li>
             </ul>
             <p>While dragging an item, <kbd>R</kbd> or <kbd class="mouse">right-click</kbd> rotates it and <kbd>F</kbd> or the <kbd class="mouse">wheel</kbd> flips it. Right-click a placed item to pick it back up.</p>
           </div>
@@ -194,8 +194,8 @@
             <p>The Model Lab (<kbd>C</kbd>) is where you create <span class="research">Research</span>. Your <a href="nodes.html#researcher">Researchers</a> bank resources into a <b>research stock</b>. Models spend that stock to deploy and level up, and deployed models produce Research every second, forever. It keeps going even through prestige.</p>
             <ul>
               <li><b>Output per second</b> = base × growth<sup>level − 1</sup> × prestige bonus.</li>
-              <li><b>Level-up cost</b> grows by the model's requirement growth each level. Some requirements only kick in at a certain level. For example, Auto Grader starts asking for NLP Data at level 4.</li>
-              <li>Reaching <b>level 8</b> on a model unlocks the next one.</li>
+              <li><b>Level-up cost</b> grows by the model's requirement growth each level. Some requirements only kick in at a certain level. For example, Auto Grader starts asking for NLP Data at level 3.</li>
+              <li>Reaching <b>level 5</b> on a model unlocks the next one, with a 20× bigger base reward.</li>
               <li>A Researcher only accepts resources that an unlocked model currently needs.</li>
             </ul>
           </div>
@@ -212,14 +212,23 @@
         <div class="split rev">
           <figure class="media"><img class="shot" src="assets/img/shots/prestige.webp" alt="The Series A Exit prestige window" width="1600" height="900" loading="lazy"><figcaption>"Go Public!": the prestige window (<kbd>P</kbd>)</figcaption></figure>
           <div>
-            <p>When your <b>lifetime Money</b> passes <b>$1B</b>, you can <b>go public</b>. You trade your office and staff for <b>AI Chips</b>, which permanently boost future growth.</p>
+            <p>When your <b>lifetime Money</b> passes <b>$2B</b>, you can <b>go public</b>. You trade your office and staff for <b>AI Chips</b>, which permanently boost future growth.</p>
             <ul>
-              <li><b>Chips earned</b> = 150 × (lifetime money ÷ 1B)<sup>0.43</sup>, minus the chips you've already earned. So $1B gives 150 chips, $10B gives about 404, and $1T about 2,925.</li>
+              <li><b>Chips earned</b> = 150 × (lifetime money ÷ $2B)<sup>0.35</sup>, minus the chips you've already earned. So $2B gives 150 chips, $20B about 336, and $2T about 1,683. The bar in the prestige window shows your progress toward the next chip.</li>
               <li><b>Bonus</b> = 1 + chips ÷ 150. 150 chips double your production, and 300 triple it. It applies to every rate stat and to model Research output.</li>
               <li><b>Reset:</b> nodes, Money and other resources, the skill tree and the Matrix.</li>
               <li><b>Kept:</b> AI Chips, lifetime totals, the research stock, <b>model levels</b> and heat.</li>
             </ul>
-            <div class="callout warn"><b>Exchange warning</b> The Exchange menu converts AI Chips into <span class="money">$100,000</span> each. Spent chips no longer count toward your production bonus, so exchange only when a quick cash injection is worth more than the permanent boost.</div>
+            <p><b>Patents and the R&amp;D Board.</b> Every prestige also pays <b>Patents</b> (about √(chips ÷ 10), so the first one gives ~4). Spend them on the <b>R&amp;D Board</b> (<kbd>B</kbd>, or the button in the prestige window), a second skill tree whose perks are <b>never reset by prestige</b>.</p>
+            <div class="table-wrap"><table><thead><tr><th>Perk</th><th>Effect per level</th><th class="num">First level</th><th class="num">Max</th></tr></thead><tbody>
+              <tr><td>Production Boost</td><td>+10% output of every node</td><td class="num">2 Patents</td><td class="num">25</td></tr>
+              <tr><td>Research Grant</td><td>+20% <span class="research">Research</span> from models</td><td class="num">3 Patents</td><td class="num">15</td></tr>
+              <tr><td>Head Start</td><td>Start each run with <span class="money">$13K</span>, ×10 per level</td><td class="num">2 Patents</td><td class="num">5</td></tr>
+              <tr><td>Offline Contract</td><td>+1 h offline earnings cap</td><td class="num">2 Patents</td><td class="num">6</td></tr>
+              <tr><td>Bug Bounty</td><td>+25% bug rewards</td><td class="num">2 Patents</td><td class="num">4</td></tr>
+              <tr><td>Automation Patent</td><td>Auto Collect stays unlocked after prestige</td><td class="num">4 Patents</td><td class="num">1</td></tr>
+              <tr><td>Matrix Patent</td><td>Unlocked Matrix cells stay unlocked</td><td class="num">12 Patents</td><td class="num">1</td></tr>
+            </tbody></table></div>
             <p class="muted small">→ <a href="formulas.html#calc-prestige">Prestige calculator</a></p>
           </div>
         </div>
@@ -227,7 +236,7 @@
 
       <section id="offline">
         <h2><span class="tag">//</span> Offline earnings</h2>
-        <p>When you come back, the game pays out what your factory would have made while you were away, based on your production rates at the moment you left. It's capped by the <b>Offline Time</b> stat: <b>20 minutes</b> at the start, and +20 minutes per upgrade (Money, ×1.07 per level). The Offline Time Matrix item boosts it further.</p>
+        <p>When you come back, the game pays out what your factory would have made while you were away, based on your production rates at the moment you left. It's capped by the <b>Offline Time</b> stat: <b>2 hours</b> at the start, and +2 hours per upgrade (5 upgrades, up to 12 hours). The Offline Time Matrix item boosts it further.</p>
       </section>
 
       <section id="saving">

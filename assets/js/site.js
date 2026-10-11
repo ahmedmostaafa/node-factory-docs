@@ -100,12 +100,12 @@
   if (nodeGrid) {
     const special = {
       Market: [['Price', 'Sell price of the input resource'], ['Speed', 'Sells everything it receives']],
-      Collector: [['Storage', 'Unlimited'], ['Auto', 'Auto Collect skill (5M $)']],
+      Collector: [['Storage', 'Unlimited'], ['Auto', 'Auto Collect skill ($53K)']],
       Split: [['Ratio', 'Slider, default 50 / 50'], ['Type', 'Adapts to input']],
       Union: [['Inputs', 'Many, same type'], ['Output', 'Sum of inputs']],
       Researcher: [['Accepts', 'Model Lab requirements'], ['Stores', 'Research stock']],
       'Antimalware Cannon': [['Fire rate', '1 shot/s base, +1 per level'], ['Range', '+1% per level']],
-      Fan: [['Cooling', '−4 heat base'], ['Scaling', '×1.5 every 20 levels']],
+      Fan: [['Cooling', '−30 heat per level'], ['Scaling', 'Linear, Fan Heat upgrades']],
     };
     nodeGrid.innerHTML = D.nodes.map(n => {
       const ins = n.inputs.length ? n.inputs.map(p => chip(p, n.name === 'Market' || n.name === 'Researcher' ? null : p.amount)).join('') : '<span class="none">no input</span>';
@@ -165,7 +165,7 @@
   const resBody = $('#res-body');
   if (resBody) {
     const rows = D.res.map(r => ({
-      r, price: r.sellable ? r.price : null, max: r.sellable && r.price ? r.price * 6 : null,
+      r, price: r.sellable ? r.price : null, max: r.sellable && r.price ? r.price * 2 : null,
     }));
     const render = list => {
       resBody.innerHTML = list.map(({ r, price, max }) => `<tr id="res-${r.key}" data-group="${r.group}">
@@ -225,22 +225,24 @@
   }
   // prestige
   bindCalc(['pc-life', 'pc-owned'], () => {
+    const P = window.PRESTIGE || { threshold: 2e9, exponent: 0.35, mult: 150, perDouble: 150 };
     const L = num('pc-life'), owned = num('pc-owned');
-    const total = L >= 1e9 ? Math.floor(150 * Math.pow(L / 1e9, 0.43)) : 0;
+    const total = L >= P.threshold ? Math.floor(P.mult * Math.pow(L / P.threshold, P.exponent)) : 0;
     const gain = Math.max(0, total - owned);
-    const bonusNow = 1 + owned / 150, bonusAfter = 1 + (owned + gain) / 150;
-    const nextNeed = 1e9 * Math.pow((total + 1) / 150, 1 / 0.43);
-    $('#pc-out').innerHTML = `<big>+${fmt(gain, 0)} AI Chips</big><small>Production bonus ×${bonusNow.toFixed(2)} → <b>×${bonusAfter.toFixed(2)}</b>. The next chip needs ${money(nextNeed)} lifetime money.</small>`;
+    const bonusNow = 1 + owned / P.perDouble, bonusAfter = 1 + (owned + gain) / P.perDouble;
+    const patents = gain > 0 ? Math.max(1, Math.floor(Math.sqrt(gain / 10))) : 0;
+    const nextNeed = P.threshold * Math.pow((total + 1) / P.mult, 1 / P.exponent);
+    $('#pc-out').innerHTML = `<big>+${fmt(gain, 0)} AI Chips · +${fmt(patents, 0)} Patents</big><small>Production bonus ×${bonusNow.toFixed(2)} → <b>×${bonusAfter.toFixed(2)}</b>. The next chip needs ${money(nextNeed)} lifetime money.</small>`;
   });
   // heat equilibrium — mirrors HeatStat.CalculateMultiplier
   function heatMult(T) {
-    if (T <= -272.99) return 4; if (T <= -200) return 3; if (T <= -150) return 2; if (T <= -100) return 1.5;
+    if (T <= -272.99) return 1.6; if (T <= -200) return 1.5; if (T <= -150) return 1.4; if (T <= -100) return 1.3;
     if (T < 0) return 1.2; if (T < 20) return 1.1; if (T <= 60) return 1; if (T <= 100) return 0.9; if (T <= 500) return 0.7;
     return 0.2;
   }
   bindCalc(['hc-heat', 'hc-fans', 'hc-fanlvl', 'hc-bugs'], () => {
     const nodeHeat = num('hc-heat'), fans = num('hc-fans'), lvl = Math.max(1, num('hc-fanlvl')), bugs = num('hc-bugs');
-    const fanHeat = -4 * lvl * Math.pow(1.5, Math.floor(lvl / 20));
+    const fanHeat = -30 * lvl;
     const total = nodeHeat + fans * fanHeat + bugs * 100;
     const T = Math.max(-272.9999, 24 + total / 10);
     const mult = heatMult(T);
@@ -256,7 +258,7 @@
   // throughput
   bindCalc(['tp-cap', 'tp-heat', 'tp-bugs', 'tp-out'], () => {
     const cap = num('tp-cap'), hm = num('tp-heat') || 1, bugs = num('tp-bugs'), out = num('tp-out') || 1;
-    const M = hm / (1 + bugs);
+    const M = hm * Math.pow(0.75, bugs);
     $('#tp-res').innerHTML = `<big>${fmt(cap * M * out)} / s</big><small>Multiplier M = ${M.toFixed(3)}. Each input needs demand × ${fmt(cap * M)} per second to keep up.</small>`;
   });
   // node picker for throughput calculator
